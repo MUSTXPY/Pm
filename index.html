@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع المطور Must</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #8A2BE2, #FFFFFF);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: 2px solid #fff;
+            margin: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #fff;
+            color: #8A2BE2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #DDA0DD;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        /* الشمس 4D */
+        .sun {
+            margin: 30px auto;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 50px 50px, #FFD700, #FF8C00);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 140, 0, 0.7);
+            position: relative;
+        }
+
+        .sun::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 130px;
+            height: 130px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+            border-radius: 50%;
+            animation: rotate 5s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>أهلاً بك في موقع المطور Must</h1>
+
+    <div class="sun"></div>
+
+    <div class="container">
+        <label for="age">أدخل عمرك:</label><br>
+        <input type="number" id="age" placeholder="أدخل عمرك هنا">
+        <button onclick="calculateWeight()">احسب الوزن</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateWeight() {
+            var age = document.getElementById("age").value;
+            if (age) {
+                var weight = age * 2 + 8; // معادلة بسيطة لحساب الوزن
+                document.getElementById("result").innerHTML = "وزنك التقريبي هو: " + weight + " كجم";
+            } else {
+                document.getElementById("result").innerHTML = "الرجاء إدخال العمر";
+            }
+        }
+    </script>
+</body>
+</html>
